@@ -1,7 +1,6 @@
 import pygame
 import math
 import shelve
-from pathlib import Path
 
 width, height = 1000, 1300
 Out = False
@@ -22,7 +21,7 @@ pink = (220, 20, 60)
 pygame.init()
 background = pygame.display.set_mode((width, height))
 clock = pygame.time.Clock()
-block_image = pygame.image.load(Path(__file__).parent / 'Images/tower_block.png')
+block_image = pygame.image.load('Images/tower_block.png')
 block_length = block_image.get_height()
 score = 0
 ground_level = height
@@ -31,12 +30,12 @@ elevation = 0
 went_up = False
 unbalance_limit = block_length * 0.6
 font = pygame.font.Font('freesansbold.ttf', 20)
-bg = pygame.image.load(Path(__file__).parent / "Images/towers_background.jpeg")
+bg = pygame.image.load("Images/towers_background.jpeg")
 screenUpdate = pygame.transform.scale(bg, (width, height))
 death_screenUpdate = pygame.Surface((width, height))
 death_screenUpdate.fill(pink)
-kaboom_sound = pygame.mixer.Sound(Path(__file__).parent / "Sounds/minecraft-tnt-explosion.mp3")
-pygame.mixer.music.load(Path(__file__).parent / 'Sounds/Nighttime-Escape.mp3')
+kaboom_sound = pygame.mixer.Sound("Sounds/minecraft-tnt-explosion.mp3")
+pygame.mixer.music.load('Sounds/Nighttime-Escape.mp3')
 pygame.mixer.music.play(-1)
 
 d = shelve.open('score.txt')
